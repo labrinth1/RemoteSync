@@ -18,7 +18,7 @@ Gettings started.
 
 
 Note
-	Not all functionallity for handling syncronization Actions has been 
-	implemented however the basic functionallity works, but there are probobly a few bugs in the code.
+	I've used this in another project of mine, I've extracted the core sync functionallity with the basic sync features, 
+	there could be some unused features in the code as well as few some bugs.
 	
 	
