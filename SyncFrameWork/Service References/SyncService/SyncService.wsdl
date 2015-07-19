@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SyncService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:5032/SyncService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:5032/SyncService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:5032/SyncService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Common" />
+      <xsd:import schemaLocation="http://localhost:5032/SyncService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Microsoft.Synchronization" />
+      <xsd:import schemaLocation="http://localhost:5032/SyncService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2009/04/sync/" />
+      <xsd:import schemaLocation="http://localhost:5032/SyncService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:5032/SyncService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISyncService_LoadSyncSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadSyncSession" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_LoadSyncSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadSyncSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_SaveSyncSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSyncSession" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_SaveSyncSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSyncSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_GetCurrentSyncKnowledge_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentSyncKnowledge" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_GetCurrentSyncKnowledge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentSyncKnowledgeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_GetChanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChanges" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_GetChanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_DownloadSingleFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadSingleFile" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_DownloadSingleFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadSingleFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_DownloadFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadFile" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_DownloadFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoteFileInfo">
+    <wsdl:part name="parameters" element="tns:RemoteFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="RemoteFileInfo_Headers">
+    <wsdl:part name="Length" element="tns:Length" />
+    <wsdl:part name="Metadata" element="tns:Metadata" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_UploadFile_OutputMessage" />
+  <wsdl:message name="ISyncService_DeleteFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_DeleteFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_StoreKnowledgeForScope_InputMessage">
+    <wsdl:part name="parameters" element="tns:StoreKnowledgeForScope" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_StoreKnowledgeForScope_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StoreKnowledgeForScopeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_GetServerFileInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_GetServerFileInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFileInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_CreateFileTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFileTest" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_CreateFileTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFileTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_DeleteTestFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTestFile" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_DeleteTestFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTestFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_EditServerTextFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditServerTextFile" />
+  </wsdl:message>
+  <wsdl:message name="ISyncService_EditServerTextFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditServerTextFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISyncService">
+    <wsdl:operation name="LoadSyncSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/LoadSyncSession" message="tns:ISyncService_LoadSyncSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/LoadSyncSessionResponse" message="tns:ISyncService_LoadSyncSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveSyncSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/SaveSyncSession" message="tns:ISyncService_SaveSyncSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/SaveSyncSessionResponse" message="tns:ISyncService_SaveSyncSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentSyncKnowledge">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/GetCurrentSyncKnowledge" message="tns:ISyncService_GetCurrentSyncKnowledge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/GetCurrentSyncKnowledgeResponse" message="tns:ISyncService_GetCurrentSyncKnowledge_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChanges">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/GetChanges" message="tns:ISyncService_GetChanges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/GetChangesResponse" message="tns:ISyncService_GetChanges_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadSingleFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/DownloadSingleFile" message="tns:ISyncService_DownloadSingleFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/DownloadSingleFileResponse" message="tns:ISyncService_DownloadSingleFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/DownloadFile" message="tns:ISyncService_DownloadFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/DownloadFileResponse" message="tns:ISyncService_DownloadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/UploadFile" name="RemoteFileInfo" message="tns:RemoteFileInfo" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/UploadFileResponse" message="tns:ISyncService_UploadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/DeleteFile" message="tns:ISyncService_DeleteFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/DeleteFileResponse" message="tns:ISyncService_DeleteFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StoreKnowledgeForScope">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/StoreKnowledgeForScope" message="tns:ISyncService_StoreKnowledgeForScope_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/StoreKnowledgeForScopeResponse" message="tns:ISyncService_StoreKnowledgeForScope_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/GetServerFileInfo" message="tns:ISyncService_GetServerFileInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/GetServerFileInfoResponse" message="tns:ISyncService_GetServerFileInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/CreateFileTest" message="tns:ISyncService_CreateFileTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/CreateFileTestResponse" message="tns:ISyncService_CreateFileTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTestFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/DeleteTestFile" message="tns:ISyncService_DeleteTestFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/DeleteTestFileResponse" message="tns:ISyncService_DeleteTestFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditServerTextFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncService/EditServerTextFile" message="tns:ISyncService_EditServerTextFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncService/EditServerTextFileResponse" message="tns:ISyncService_EditServerTextFile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISyncService" type="tns:ISyncService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadSyncSession">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/LoadSyncSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSyncSession">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/SaveSyncSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentSyncKnowledge">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/GetCurrentSyncKnowledge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChanges">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/GetChanges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadSingleFile">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/DownloadSingleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/DownloadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/UploadFile" style="document" />
+      <wsdl:input name="RemoteFileInfo">
+        <soap:header message="tns:RemoteFileInfo_Headers" part="Length" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="Metadata" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoreKnowledgeForScope">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/StoreKnowledgeForScope" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileInfo">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/GetServerFileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileTest">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/CreateFileTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTestFile">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/DeleteTestFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditServerTextFile">
+      <soap:operation soapAction="http://tempuri.org/ISyncService/EditServerTextFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SyncService">
+    <wsdl:port name="BasicHttpBinding_ISyncService" binding="tns:BasicHttpBinding_ISyncService">
+      <soap:address location="http://localhost:5032/SyncService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

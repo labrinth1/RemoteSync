@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:5032/SyncService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Microsoft.Synchronization" />
+  <xs:complexType name="LocalSyncDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SyncDetails">
+        <xs:sequence>
+          <xs:element name="folderPath" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LocalSyncDetails" nillable="true" type="tns:LocalSyncDetails" />
+  <xs:complexType name="SyncDetails">
+    <xs:sequence>
+      <xs:element name="folderPath" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Microsoft.Synchronization" name="idFormats" nillable="true" type="q1:SyncIdFormatGroup" />
+      <xs:element name="localChangedDetected" type="xs:boolean" />
+      <xs:element name="metadataStore" nillable="true" type="tns:MetadataStore" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Microsoft.Synchronization" name="myForgottenKnowledge" nillable="true" type="q2:ForgottenKnowledge" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Microsoft.Synchronization" name="myKnowledge" nillable="true" type="q3:SyncKnowledge" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Microsoft.Synchronization" name="replicaId" nillable="true" type="q4:SyncId" />
+      <xs:element name="tickCount" type="xs:unsignedLong" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SyncDetails" nillable="true" type="tns:SyncDetails" />
+  <xs:complexType name="MetadataStore">
+    <xs:sequence>
+      <xs:element name="data" nillable="true" type="tns:ArrayOfItemMetadata" />
+      <xs:element name="path" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetadataStore" nillable="true" type="tns:MetadataStore" />
+  <xs:complexType name="ArrayOfItemMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemMetadata" nillable="true" type="tns:ItemMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemMetadata" nillable="true" type="tns:ArrayOfItemMetadata" />
+  <xs:complexType name="ItemMetadata">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Microsoft.Synchronization" name="changeVersion" nillable="true" type="q5:SyncVersion" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Microsoft.Synchronization" name="creationVersion" nillable="true" type="q6:SyncVersion" />
+      <xs:element name="isTombstone" type="xs:boolean" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Microsoft.Synchronization" name="itemId" nillable="true" type="q7:SyncId" />
+      <xs:element name="lastWriteTimeUtc" nillable="true" type="xs:dateTime" />
+      <xs:element name="uri" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemMetadata" nillable="true" type="tns:ItemMetadata" />
+</xs:schema>
