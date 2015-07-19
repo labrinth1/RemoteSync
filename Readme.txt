@@ -19,6 +19,6 @@ Gettings started.
 
 Note
 	I've used this in another project of mine, I've extracted the core sync functionallity with the basic sync features, 
-	there could be some unused features in the code as well as few some bugs.
+	there could be some unused features in the code and a few bugs as well.
 	
 	
